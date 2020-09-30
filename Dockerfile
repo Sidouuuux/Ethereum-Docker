@@ -1,6 +1,3 @@
-#créé un compte dont les données et les clés sont stocké dans le datadir 
-geth -datadir "/home/sidoux/Desktop/dockereth" -dev account new
-
 FROM Ubuntu
 
 RUN apt-get install software-properties-common
