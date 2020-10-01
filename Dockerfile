@@ -1,15 +1,20 @@
-FROM Ubuntu
+FROM ubuntu
 
-RUN apt-get install software-properties-common
+RUN apt update
+RUN apt-get install software-properties-common -y
 RUN add-apt-repository -y ppa:ethereum/ethereum
 RUN apt update
-RUN apt install ethereum
+RUN apt install ethereum -y
 
+#smart contract
+RUN apt install nodejs -y
+RUN apt install npm -y
+RUN apt install -y solc
+RUN apt install nano -y
+
+WORKDIR Projet
 COPY . .
 
-RUN geth account new
-RUN geth account new
-RUN ["geth", "--datadir", ""~/Library/LocalNode1"", "init", "genesis.json"]
-RUN ["geth", "--datadir", ""~/Library/LocalNode2"", "init", "genesis.json"]
+#RUN geth --datadir . account new
 
-RUN ["geth", "--datadir", ""~/Library/LocalNode1"", "--networkid", "1234", "--port", "11111", "--nodiscover", "console"]
+#CMD ["geth", "--ropsten", "console"]
