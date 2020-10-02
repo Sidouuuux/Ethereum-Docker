@@ -15,7 +15,7 @@ RUN apt install nano -y
 WORKDIR Projet
 COPY . .
 
-FROM apline
+FROM alpine
 
 COPY --from=builder ./Project ./Project 
 
