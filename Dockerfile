@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu AS builder
 
 RUN apt update
 RUN apt-get install software-properties-common -y
@@ -14,6 +14,10 @@ RUN apt install nano -y
 
 WORKDIR Projet
 COPY . .
+
+FROM apline
+
+COPY --from=builder ./Project ./Project 
 
 #RUN geth --datadir . account new
 
